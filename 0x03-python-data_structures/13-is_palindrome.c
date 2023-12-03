@@ -21,7 +21,7 @@ int is_palindrome(listint_t **head)
 
 int check_plaindrome(listint_t **head, listint_t *end)
 {
-	if (last == NULL)
+	if (end == NULL)
 		return (1);
 	if (check_plaindrome(head, end->next) && (*head)->n == end->n)
 	{
