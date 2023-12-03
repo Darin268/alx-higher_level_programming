@@ -1,34 +1,31 @@
 #include "lists.h"
-#include <stdio.h>
-#include <stdlib.h>
 
 /**
- * is_palindrome - To check if palindrome or not
- * @head: head of the list
- * Return: 0 if it is not a palindrome, 1 if it is a palindrome
+ * is_palindrome - to check of list is plindrome
+ * @head: head of list
+ * Return: 0 if it is not a palindrome, 1 if it is
  */
-
 int is_palindrome(listint_t **head)
 {
 	if (head == NULL || *head == NULL)
 		return (1);
-	return (aux_palindrome(head, *head));
+	return (check_plaindrome(head, *head));
 }
 
 /**
- * aux_palindrome - To know if it is plaindrome
- * @head: head of the list
- * @end: end of the list
+ * check_plaindrome - to check if the list if palindrome
+ * @head: head of list
+ * @end: end of list
+ * Return 0 if not palindrome and 1 if it is
  */
-int aux_palindrome(listint_t **head, listint_t *end)
+int check_plaindrome(listint_t **head, listint_t *list)
 {
-	if (end == NULL)
+	if (last == NULL)
 		return (1);
-	if (aux_palindrome(head, end->next) && (*head)->n == end->n)
+	if (check_plaindrome(head, end->next) && (*head)->n == end->n)
 	{
-		*head = (*head)-> next;
+		*head = (*head)->next;
 		return (1);
 	}
-
 	return (0);
 }
