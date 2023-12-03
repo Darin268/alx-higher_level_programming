@@ -3,7 +3,7 @@
 #include <stdlib.h>
 
 /**
- * is_palindrome - to check if palindrome or not
+ * is_palindrome - To check if palindrome or not
  * @head: head of the list
  * Return: 0 if it is not a palindrome, 1 if it is a palindrome
  */
@@ -16,7 +16,7 @@ int is_palindrome(listint_t **head)
 }
 
 /**
- * aux_palindrome - to know if it is plaindrome
+ * aux_palindrome - To know if it is plaindrome
  * @head: head of the list
  * @end: end of the list
  */
