@@ -1,7 +1,7 @@
 #include "lists.h"
 
 /**
- * is_palindrome - to check of list is plindrome
+ * is_palindrome - To check of list is plindrome
  * @head: head of list
  * Return: 0 if it is not a palindrome, 1 if it is
  */
@@ -13,12 +13,13 @@ int is_palindrome(listint_t **head)
 }
 
 /**
- * check_plaindrome - to check if the list if palindrome
+ * check_plaindrome - To check if the list if palindrome
  * @head: head of list
  * @end: end of list
- * Return 0 if not palindrome and 1 if it is
+ * Return: 0 if not palindrome and 1 if it is
  */
-int check_plaindrome(listint_t **head, listint_t *list)
+
+int check_plaindrome(listint_t **head, listint_t *end)
 {
 	if (last == NULL)
 		return (1);
