@@ -2,14 +2,13 @@
 import sys
 
 
-
 def safe_print_integer_err(value):
     try:
         print('{:d}'.format(value))
         return True
-    except ValueError as v:
-        print('Exception:', v, file=sys.stderr)
+    except ValueError as ve:
+        print('Exception:', ve, file=sys.stderr)
         return False
-    except TypeError as t:
-        print('Exception:', t, file=sys.stderr)
+    except TypeError as ve:
+        print('Exception:', ve, file=sys.stderr)
         return False
