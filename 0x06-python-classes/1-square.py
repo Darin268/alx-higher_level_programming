@@ -1,12 +1,15 @@
 #!/usr/bin/python3
-"""Define a  class square"""
+"""Square module"""
 
 
 class Square:
-    """Private instance attribute: size
+    """Square class"""
 
-    Instantiation with size (no type/value verification).
+    def __init__(self, size):
+        """Initialize a square
 
-    """
-     def __init__(self, size):
+        Args:
+            size (int): Size of the square.
+        """
+
         self.__size = size
