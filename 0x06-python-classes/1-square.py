@@ -1,10 +1,9 @@
 #!/usr/bin/python3
-"""A class square"""
+"""Define a  class square"""
 
 
 class Square:
         """Private instance attribute: size
-        Instantiation with size (no type/value verification)
-        You are not allowed to import any module"""
+        Instantiation with size (no type/value verification)"""
         def __init__(self, size):
             self.__size = size
