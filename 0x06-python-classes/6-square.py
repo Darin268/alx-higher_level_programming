@@ -3,6 +3,11 @@
 
 
 class Square:
+    """Class Square that defines a square
+
+    Attributes:
+    __size (int): size of a size of the square
+    __position (tuple): position of the square in 2D"""
     def __init__(self, size=0, position=(0, 0)):
         self.size = size
         self.position = position
