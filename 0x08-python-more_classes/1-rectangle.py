@@ -24,8 +24,6 @@ class Rectangle:
             width (int): Optional, defaults to 0. Width of the rectangle.
             height (int): Optional, defaults to 0. Height of the rectangle.
         """
-       
-
        self.width = width
         self.height = height
 
@@ -37,9 +35,7 @@ class Rectangle:
         Returns:
             int: Width of the rectangle.
         """
-       
-
-       return self.__width
+        return self.__width
 
     @width.setter
     def width(self, value):
