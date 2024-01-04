@@ -2,9 +2,14 @@
 """
 
 Defines an empty Rectangle class.
+
 """
 
 class Rectangle:
-    """An empty Rectangle class."""
+    """
+
+    An empty Rectangle class.
+
+    """
 
     pass
