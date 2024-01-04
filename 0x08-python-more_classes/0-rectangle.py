@@ -5,6 +5,7 @@ Defines an empty Rectangle class.
 
 """
 
+
 class Rectangle:
     """
 
