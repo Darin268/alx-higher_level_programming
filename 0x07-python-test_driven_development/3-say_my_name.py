@@ -1,31 +1,33 @@
 #!/usr/bin/python3
-"""Defines a name-printing function."""
+"""
+
+This module prints the name of a anything
+
+Output: 'My name is <first name> <last name>'
+
+    * The first name and last name must be a strings
+
+"""
 
 
 def say_my_name(first_name, last_name=""):
     """
-    Prints the name in the format "My name is <first name> <last name>"
+
+    Prints the names
 
     Args:
-    - first_name: A string representing the first name.
-    - last_name: A string representing the last name (default is an empty string).
+        first_name (str): The first name of anything.
+        last_name (str): The last name of anything.
 
     Raises:
-    - TypeError: If first_name or last_name is not a string.
+        TypeError: If `first_name` and `last_name` aren't strings.
 
-    Returns:
-    - None. Prints the formatted name.
     """
 
-    # Validate if first_name and last_name are strings
-    if not isinstance(first_name, str):
-        raise TypeError("first_name must be a string")
+    if type(first_name) is not str:
+        raise TypeError('first_name must be a string')
 
-    if not isinstance(last_name, str):
-        raise TypeError("last_name must be a string")
+    if type(last_name) is not str:
+        raise TypeError('last_name must be a string')
 
-    # Print the formatted name
-    if last_name != "":
-        print("My name is {} {}".format(first_name, last_name))
-    else:
-        print("My name is {}".format(first_name))
+    print('My name is', first_name, last_name)
