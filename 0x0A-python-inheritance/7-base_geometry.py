@@ -1,7 +1,5 @@
 #!/usr/bin/python3
-"""
-A integer validator module
-"""
+"""A integer validator module"""
 
 
 class BaseGeometry:
