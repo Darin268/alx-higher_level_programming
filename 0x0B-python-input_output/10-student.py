@@ -26,11 +26,7 @@ class Student:
         Args:
             attrs (list): (Optional) The attributes to represent.
         """
-        if attrs is None:
-            return self.__dict__
-        else:
-            filtered_dict = {}
-            for attr in attrs:
-                if hasattr(self, attr):
-                    filtered_dict[attr] = getattr(self, attr)
-            return filtered_dict
+        if (type(attrs) == list and
+                all(type(ele) == str for ele in attrs)):
+            return {k: getattr(self, k) for k in attrs if hasattr(self, k)}
+        return self.__dict__
