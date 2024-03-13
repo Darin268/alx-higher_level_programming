@@ -3,12 +3,12 @@
 const Rectangle = require('./5-square');
 
 class Square extends Rectangle {
-  constructor(size) {
+  constructor (size) {
     // Call the constructor of Rectangle using super()
     super(size, size);
   }
 
-  charPrint(c) {
+  charPrint (c) {
     // If c is undefined, use the character X
     if (c === undefined) {
       c = 'X';
