@@ -7,37 +7,19 @@ from sqlalchemy.orm import sessionmaker
 from relationship_state import Base, State
 from relationship_city import City
 
-if __name__ == "__main__":
-    username = sys.argv[1]
-    password = sys.argv[2]
-    db_name = sys.argv[3]
-
-    # Connect to the database
+if __name__ == '__main__':
     engine = create_engine('mysql+mysqldb://{}:{}@localhost:3306/{}'.
-                           format(username, password, db_name),
+                           format(sys.argv[1], sys.argv[2], sys.argv[3]),
                            pool_pre_ping=True)
-
-    # Create all the tables in the database (if not existing)
     Base.metadata.create_all(engine)
 
-    # Create a Session
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    # Create a new State
-    california = State(name="California")
+    newState = State(name='California')
+    newCity = City(name='San Francisco')
+    newState.cities.append(newCity)
 
-    # Create a new City
-    san_francisco = City(name="San Francisco")
-
-    # Add the City to the State
-    california.cities.append(san_francisco)
-
-    # Add the State and City to the session
-    session.add(california)
-
-    # Commit changes to the database
+    session.add(newState)
+    session.add(newCity)
     session.commit()
-
-    # Close the session
-    session.close()
