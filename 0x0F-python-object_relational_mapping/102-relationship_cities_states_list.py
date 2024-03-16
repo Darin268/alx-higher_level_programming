@@ -8,28 +8,12 @@ from relationship_state import Base, State
 from relationship_city import City
 
 if __name__ == "__main__":
-    username = sys.argv[1]
-    password = sys.argv[2]
-    db_name = sys.argv[3]
-
-    # Connect to the database
-    engine = create_engine('mysql+mysqldb://{}:{}@localhost:3306/{}'.
-                           format(username, password, db_name),
-                           pool_pre_ping=True)
-
-    # Create all the tables in the database (if not existing)
+    engine = create_engine('mysql+mysqldb://{}:{}@localhost:3306/{}'
+                           .format(sys.argv[1], sys.argv[2], sys.argv[3]))
     Base.metadata.create_all(engine)
-
-    # Create a Session
     Session = sessionmaker(bind=engine)
     session = Session()
-
-    # Query the database and retrieve all City objects with their linked State objects
-    cities = session.query(City).order_by(City.id).all()
-
-    # Print the results
-    for city in cities:
-        print("{}: {} -> {}".format(city.id, city.name, city.state.name))
-
-    # Close the session
-    session.close()
+    for instance in session.query(State).order_by(State.id):
+        for city_ins in instance.cities:
+            print(city_ins.id, city_ins.name, sep=": ", end="")
+            print(" -> " + instance.name)
