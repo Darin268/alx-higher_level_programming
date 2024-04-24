@@ -1,40 +1,20 @@
 #!/usr/bin/node
-
+// Number of films with the given character ID
 const request = require('request');
+let num = 0;
 
-// Check if the correct number of arguments are provided
-if (process.argv.length !== 3) {
-  console.error('Usage: node 4-starwars_count.js <API URL>');
-  process.exit(1);
-}
-
-// Extract the API URL from command line arguments
-const apiUrl = process.argv[2];
-
-// Define the character ID for Wedge Antilles
-const characterID = 18;
-
-// Make a GET request to the Star Wars API films endpoint
-request(apiUrl, (error, response, body) => {
+request.get(process.argv[2], (error, response, body) => {
   if (error) {
-    console.error(error);
-    return;
+    console.log(error);
+  } else {
+    const content = JSON.parse(body);
+    content.results.forEach((film) => {
+      film.characters.forEach((character) => {
+        if (character.includes(18)) {
+          num += 1;
+        }
+      });
+    });
+    console.log(num);
   }
-
-  // Parse the response body
-  const data = JSON.parse(body);
-
-  // Initialize a counter for movies containing Wedge Antilles
-  let movieCount = 0;
-
-  // Iterate through each movie
-  data.results.forEach(movie => {
-    // Check if Wedge Antilles is present in the characters list
-    if (movie.characters.includes(`https://swapi-api.alx-tools.com/api/people/${characterID}/`)) {
-      movieCount++;
-    }
-  });
-
-  // Print the number of movies containing Wedge Antilles
-  console.log(movieCount);
 });
